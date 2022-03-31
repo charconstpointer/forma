@@ -28,7 +28,11 @@ func main() {
 			Date:   time.Now(),
 			Note:   note,
 		}
-		add(m)
+		err := add(m)
+		if err != nil {
+			fmt.Printf("could not add measurement: %v\n", err)
+			os.Exit(1)
+		}
 	}
 }
 
